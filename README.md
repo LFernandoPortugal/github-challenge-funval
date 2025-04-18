@@ -12,7 +12,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="{https://github-challenge-funval.vercel.app/}">
+    <a href="https://github-challenge-funval.vercel.app/">
       Solution
     </a>
     <span> | </span>

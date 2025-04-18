@@ -4,10 +4,12 @@ import useGitHub from '../hooks/useGitHub';
 import Header from '../components/Header';
 import ProfileSection from '../components/ProfileSection';
 import ReposGrid from '../components/ReposGrid';
+import RateLimitAlert from '../components/RateLimitAlert';
+
 
 const Profile = () => {
   const { username } = useParams();
-  const { profile, repos, loading, error, searchUsers, suggestions } = useGitHub(username);
+  const { profile, repos, loading, error, searchUsers, suggestions, rateLimit } = useGitHub(username);
   const navigate = useNavigate();
 
   const handleSearch = (newUsername) => {
@@ -50,6 +52,8 @@ const Profile = () => {
           onSuggestionSelect={handleSuggestionSelect}
           onInputChange={searchUsers}/>
       
+      <RateLimitAlert rateLimit={rateLimit} />
+
       <main className="container mx-auto px-4 py-8 md:mx-5 md:max-w-4xl lg:mx-auto">
         
         

@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router';
 import Header from '../components/Header';
 import useGitHub from '../hooks/useGitHub';
+import RateLimitAlert from '../components/RateLimitAlert';
 
 
 const Home = () => {
   const navigate = useNavigate();
-  const { searchUsers, suggestions } = useGitHub();
+  const { searchUsers, suggestions, rateLimit } = useGitHub();
 
 
   const handleSearch = (username) => {
@@ -23,6 +24,8 @@ const Home = () => {
         onSuggestionSelect={handleSuggestionSelect}
         onInputChange={searchUsers} />
       
+      <RateLimitAlert rateLimit={rateLimit} />
+
       <main className="container mx-auto px-4 py-8">
         <div className="text-center py-12">
           <h2 className="text-2xl font-bold mb-4">Search for a GitHub user</h2>
