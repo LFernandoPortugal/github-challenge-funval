@@ -1,16 +1,27 @@
-import Header from '../components/Header';
 import { useNavigate } from 'react-router';
+import Header from '../components/Header';
+import useGitHub from '../hooks/useGitHub';
+
 
 const Home = () => {
   const navigate = useNavigate();
+  const { searchUsers, suggestions } = useGitHub();
+
 
   const handleSearch = (username) => {
     navigate(`/profile/${username}`);
   };
 
+  const handleSuggestionSelect = (username) => {
+    navigate(`/profile/${username}`);
+  };
+
   return (
     <div className="min-h-screen bg-gray-800 text-white">
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch}
+        suggestions={suggestions}
+        onSuggestionSelect={handleSuggestionSelect}
+        onInputChange={searchUsers} />
       
       <main className="container mx-auto px-4 py-8">
         <div className="text-center py-12">

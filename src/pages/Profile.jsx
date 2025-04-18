@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router';
+import { useNavigate } from 'react-router';
 import useGitHub from '../hooks/useGitHub';
 import Header from '../components/Header';
 import ProfileSection from '../components/ProfileSection';
@@ -6,7 +7,16 @@ import ReposGrid from '../components/ReposGrid';
 
 const Profile = () => {
   const { username } = useParams();
-  const { profile, repos, loading, error } = useGitHub(username);
+  const { profile, repos, loading, error, searchUsers, suggestions } = useGitHub(username);
+  const navigate = useNavigate();
+
+  const handleSearch = (newUsername) => {
+    navigate(`/profile/${newUsername}`);
+  };
+
+  const handleSuggestionSelect = (newUsername) => {
+    navigate(`/profile/${newUsername}`);
+  };
 
   if (loading) {
     return (
@@ -19,7 +29,10 @@ const Profile = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-gray-900 text-white">
-        <Header />
+        <Header onSearch={handleSearch}
+          suggestions={suggestions}
+          onSuggestionSelect={handleSuggestionSelect}
+          onInputChange={searchUsers}/>
         <div className="container mx-auto px-4 py-8 text-center">
           <p className="text-red-500 mb-4">{error}</p>
           <Link to="/" className="text-blue-500 hover:underline">
@@ -32,7 +45,10 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-gray-800 text-white">
-      <Header />
+      <Header onSearch={handleSearch}
+          suggestions={suggestions}
+          onSuggestionSelect={handleSuggestionSelect}
+          onInputChange={searchUsers}/>
       
       <main className="container mx-auto px-4 py-8 md:mx-5 md:max-w-4xl lg:mx-auto">
         

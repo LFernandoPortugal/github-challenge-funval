@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Github-profile-challenge_FUNVAL} | devChallenges</h1>
+<h1 align="center">Github-profile-challenge_FUNVAL | devChallenges</h1>
 
 <div align="center">
    Solution for a challenge <a href="https://devchallenges.io/challenge/github-profile" target="_blank">GitHub Profile</a> from <a href="http://devchallenges.io" target="_blank">devChallenges.io</a>.
@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="{https://your-demo-link.your-domain}">
+    <a href="https://github-challenge-funval.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="{https://your-url-to-the-solution}">
+    <a href="{https://github-challenge-funval.vercel.app/}">
       Solution
     </a>
     <span> | </span>
@@ -67,7 +67,7 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 - Flexbox
 - CSS Grid
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
 - [Tailwind](https://tailwindcss.com/)
 
 ## Features
